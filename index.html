@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Editor</title>
+    <style>
+      button{
+          border: none;
+          padding: 10px;
+          background-color: royalblue;     
+      }
+      button:hover{
+           cursor: pointer;    
+      }
+      textarea{
+        font-size: 15px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-div" style="margin-top: 50px;">
+      
+      <div class="text-area" align="center">
+               <h1>TEXT EDITOR</h1>
+               <h4>Enter some text here</h1>
+        <form class="form">
+             <textarea id="textarea" cols="50" rows="10" onfocus onkeyup="transformText()"></textarea><br><br>
+             <button type="button" onclick="uppercase()">UPPERCASE</button>
+             <button type="button" onclick="lowercase()">LOWERCASE</button>
+             <button type="button" onclick="search()">SEARCH</button>
+             <button type="button" onclick="changeColor()">CHANGE COLOR</button>
+             <button type="button" onclick="bold()">BOLD</button>
+             <button type="button" onclick="alignLeft()">ALIGN LEFT</button>
+             <button type="button" onclick="alignCenter()">ALIGN Center</button>
+             <button type="button" onclick="alignRight()">ALIGN Right</button>
+
+        </form>
+        <h4 id="op">This sentence contains 4 words and 15 characters</h4> 
+      </div>
+    </div>
+    <script>
+               function uppercase(){
+                         let a = document.getElementById("textarea") 
+                         a.value  = (a.value).toUpperCase()   
+               }
+
+
+               function lowercase(){
+                         let a = document.getElementById("textarea") 
+                         a.value  = (a.value).toLowerCase()   
+               }
+
+
+               function search(){
+                      let text = document.getElementById("textarea").value
+                      let input = prompt("Enter the text you want to search")
+                      if(text.includes(input)){
+                           alert(`Text conatins ${input} in it`)   
+                      }else{
+                          alert(`Text conatins ${input} in it`)    
+                      }  
+                    }
+                    
+                    
+                function changeColor(){
+                     let text = document.getElementById("textarea")
+                     text.style.color = prompt("Enter the text color")
+                } 
+
+                function transformText(){
+                    let text = document.getElementById("textarea").value
+                    let count = text.split(" ").length-1
+                    document.getElementById("op").innerHTML = "This sentence contains "+count+" words and "+text.length+" characters"
+                }
+
+                       
+                function bold(){
+                         let a = document.getElementById("textarea");
+                         a.style.fontWeight="bolder"; 
+               }
+               function alignLeft(){
+                         let a = document.getElementById("textarea");
+                         a.style.textAlign="left"; 
+               }
+               function alignCenter(){
+                         let a = document.getElementById("textarea");
+                         a.style.textAlign="center"; 
+               }
+               function alignRight(){
+                         let a = document.getElementById("textarea");
+                         a.style.textAlign="right"; 
+               }
+
+              
+    </script>
+  </body>
+</html>
